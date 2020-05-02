@@ -36,3 +36,17 @@ var inputInnerShadow = ConcaveDecoration(
   ],
   depression: 7,
 );
+
+TextStyle inputText(double fontSize) {
+  return TextStyle(
+      fontFamily: "OblivianText",
+      fontWeight: FontWeight.w700,
+      fontSize: fontSize,
+      color: Color(0xff6F6F6F));
+}
+
+var baseInputDown = BoxDecoration(
+    gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [const Color(0xFFE2E8F0), const Color(0xFFD0D6DE)]));
