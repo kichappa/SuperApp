@@ -37,7 +37,7 @@ var buttonDownInner = ConcaveDecoration(
   depression: 10,
 );
 
-var baseTileUpIner = ConcaveDecoration(
+var baseTileUpInner = ConcaveDecoration(
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(26),
   ),
@@ -91,8 +91,11 @@ TextStyle inputText(double fontSize) {
       color: Color(0xff6F6F6F));
 }
 
-var baseInputDown = BoxDecoration(
+var baseBack = BoxDecoration(
     gradient: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
-        colors: [const Color(0xFFE2E8F0), const Color(0xFFD0D6DE)]));
+        colors: [
+      const Color(0xFFE2E8F0),
+      const Color(0xFFD0D6DE),
+    ]));

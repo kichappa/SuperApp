@@ -24,17 +24,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: baseInputDown,
-      child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: Stack(children: [
-            LoginInputContainer(),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: LoginButtons(),
-            ),
-          ])),
+      decoration: baseBack,
+      child: SafeArea(
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: Container(
+                // decoration: BoxDecoration(color: Colors.red),
+                child: Stack(children: [
+                  LoginInputContainer(),
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: LoginButtons(),
+                  ),
+                ]))),
+      ),
     );
   }
 }
@@ -46,13 +50,13 @@ class LoginButtons extends StatelessWidget {
     return Container(
         padding: EdgeInsets.only(right: 30, bottom: 43),
         child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: <Widget>[
-        LoginButton(title: "Use\nGoogle"),
-        SizedBox(width:15), 
-        LoginButton(title: "Login"),
-      ],
-    ));
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            LoginButton(title: "Use\nGoogle"),
+            SizedBox(width: 15),
+            LoginButton(title: "Login"),
+          ],
+        ));
   }
 }
 
@@ -94,10 +98,10 @@ class _LoginButtonState extends State<LoginButton> {
             child: AnimatedContainer(
               width: MediaQuery.of(context).size.width * 120 / 375,
               height: MediaQuery.of(context).size.height * 143 / 812,
-              duration: const Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 100),
               decoration: _isPressed ? buttonDownOuter : baseTileUpOuter,
               child: Container(
-                  decoration: _isPressed ? buttonDownInner : baseTileUpIner,
+                  decoration: _isPressed ? buttonDownInner : baseTileUpInner,
                   child: Stack(
                     children: <Widget>[
                       Positioned(
@@ -119,35 +123,38 @@ class LoginInputContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        // decoration: BoxDecoration(color: Colors.blue),
-        child: Align(
-            alignment: Alignment.center,
-            child: Container(
-                // decoration: BoxDecoration(color: Colors.red),
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                FractionallySizedBox(
-                    widthFactor: 265 / 375,
-                    child: Text(
-                      "email",
-                      style: inputText(15),
-                    )),
-                SizedBox(height: 5),
-                InputTextField(hintText: "kichappa@gmail.com"),
-                SizedBox(height: 3),
-                FractionallySizedBox(
-                    widthFactor: 265 / 375,
-                    child: Text(
-                      "password",
-                      style: inputText(15),
-                    )),
-                SizedBox(height: 5),
-                InputTextField(hintText: "••••••••")
-              ],
-            ))));
+      // decoration: BoxDecoration(color: Colors.blue),
+      child: Align(
+        alignment: Alignment.center,
+        child: Container(
+            // decoration: BoxDecoration(color: Colors.red),
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(height: MediaQuery.of(context).size.height*51.5/812),
+            FractionallySizedBox(
+                widthFactor: 265 / 375,
+                child: Text(
+                  "email",
+                  style: inputText(15),
+                )),
+            SizedBox(height: 5),
+            InputTextField(hintText: "kichappa@gmail.com"),
+            SizedBox(height: 3),
+            FractionallySizedBox(
+                widthFactor: 265 / 375,
+                child: Text(
+                  "password",
+                  style: inputText(15),
+                )),
+            SizedBox(height: 5),
+            InputTextField(hintText: "••••••••")
+          ],
+        )),
+      ),
+    );
   }
 }
 
@@ -158,30 +165,29 @@ class InputTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FractionallySizedBox(
-        widthFactor: 309 / 375,
+    return
+        // FractionallySizedBox(
+        // widthFactor: 309 / 375,
         // heightFactor: 0.3,
-        child: Container(
-            // width: 39,
-            height: 60,
-            decoration: baseTileUpOuter,
-            child: Center(
-                child: Container(
-                    decoration: inputInner,
-                    child: Center(
-                        child: Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                ),
-                            // width: 265,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                  hintText: hintText,
-                                  border: InputBorder.none,
-                                  contentPadding: EdgeInsets.all(20.0)),
-                              style: inputText(18),
-                              cursorColor: Color(0xff6F6F6F),
-                              cursorWidth: 3,
-                            )))))));
+        // child:
+        Container(
+      width: 309,
+      height: 60,
+      decoration: baseTileUpOuter,
+      child: Center(
+          child: Container(
+              decoration: inputInner,
+              child: Center(
+                  child: TextField(
+                decoration: InputDecoration(
+                    hintText: hintText,
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.all(20.0)),
+                style: inputText(18),
+                cursorColor: Color(0xff6F6F6F),
+                cursorWidth: 3,
+              )))),
+      // ),
+    );
   }
 }
