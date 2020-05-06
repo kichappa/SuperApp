@@ -1,0 +1,4 @@
+#Sun May 03 09:41:01 IST 2020
+base.0=C\:\\Users\\Govind\\Desktop\\Projects\\insti super app\\login\\flutter_login_ui-master\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
